@@ -1,0 +1,20 @@
+import socket
+import random
+
+
+serverAddressPort = ("127.0.0.1", 8000)
+bufferSize = 1024
+UDPClientSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
+
+# Send to server using created UDP socket
+
+while(True):
+	text=[ "," , "],[" , "," , "],[" , "," ,"]"]
+	x="["
+	for i in range(6):
+		x = x + str(int(100*random.random()*(-1)**(int(100*random.random())%2))) + text[i]
+	msgFromClient = x
+	bytesToSend = str.encode(msgFromClient)
+	UDPClientSocket.sendto(bytesToSend, serverAddressPort)
+	
+print("ok")
